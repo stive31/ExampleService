@@ -3,30 +3,31 @@ using Microsoft.Extensions.Options;
 using System.Data;
 using Vk.Infrastructure.Configuration;
 using Vk.Infrastructure.Configuration.Options;
+using Vk.Infrastructure.DataBase.Configuration;
 
 namespace Vk.Infrastructure.DataBase;
 
 public class ConnectionFactory : IConnectionFactory
 {
-    private readonly ConnectionStringsOptions _options;
+    private IDataBaseConfigurationProvider _config;
 
-    public ConnectionFactory(IOptionsMonitor<ConnectionStringsOptions> options)
+    public ConnectionFactory(IDataBaseConfigurationProvider configProvider)
     {
-        _options = options.GetOptions();
+        _config = configProvider;
     }
      
     public IDbConnection GetLM()
     {
-        return new SqlConnection(_options.LM);
+        return new SqlConnection(_config.GetConnectionLM());
     }
 
-    public IDbConnection GeKK()
+    public IDbConnection GetKK()
     {
-        return new SqlConnection(_options.KK);
+        return new SqlConnection(_config.GetConnectionKK());
     }
 
-    public IDbConnection GetEntry()
+    public IDbConnection GetUsers()
     {
-        return new SqlConnection(_options.EntryConnectionString);
+        return new SqlConnection(_config.GetConnectionUser());
     }
 }
