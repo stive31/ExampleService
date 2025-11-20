@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.OpenApi" Version="3.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="10.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
@@ -19,6 +20,10 @@
     <ProjectReference Include="..\Vk.Application\Vk.Application.csproj" />
     <ProjectReference Include="..\Vk.Domain\Vk.Domain.csproj" />
     <ProjectReference Include="..\Vk.Infrastructure\Vk.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\User\Model\" />
   </ItemGroup>
 
 </Project>

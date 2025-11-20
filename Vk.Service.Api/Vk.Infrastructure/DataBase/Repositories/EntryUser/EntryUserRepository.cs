@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Vk.Application;
-using Vk.Domain.EntryUser;
+using Vk.Domain.Repositories.EntryUser;
 
 namespace Vk.Infrastructure.DataBase.Repositories.EntryUser;
 
@@ -43,6 +43,19 @@ public class EntryUserRepository : IEntryUserRepository
 
     public EntryUserModel GetUser(string token)
     {
-        throw new NotImplementedException();
+        using(var conn = _connectionFactory.GetUsers())
+        {
+            var sql = @"
+            select token as Token
+                ,login as WinLogin
+                ,name as UserName
+                ,admin as IsAdmin
+                from [dbo].[entry]
+                where token = @token";
+            return conn.QuerySingleOrDefault<EntryUserModel>(sql, new
+            {
+                token
+            });
+        }
     }
 }

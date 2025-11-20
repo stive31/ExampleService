@@ -1,4 +1,4 @@
-﻿namespace Vk.Domain.EntryUser;
+﻿namespace Vk.Domain.Repositories.EntryUser;
 
 public class EntryUserModel
 {

@@ -6,5 +6,11 @@ public static class ConfigSection
     /// ConnectionStrings
     /// </summary>
     public static readonly string ConnectionStrings = "ConnectionStrings";
+
+    public static readonly string GeneralOptions = "WebService:GeneralApi";
+    
+    public static readonly string WebServiceCommonOptions = "WebService";
+
+    public static readonly string DictionaryOptions = "WebService:DictionaryApi";
 }
 
